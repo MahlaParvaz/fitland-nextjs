@@ -28,7 +28,10 @@ export default function Search() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="relative">
+    <form
+      onSubmit={onSubmit}
+      className="relative flex flex-row-reverse items-center  w-xl h-10 p-2 rounded-xl bg-gray-50 border border-gray-300"
+    >
       <input
         key={searchParams?.get('search')}
         type="text"
@@ -36,17 +39,17 @@ export default function Search() {
         placeholder="جستجو ..."
         autoComplete="off"
         defaultValue={searchParams?.get('search') || ''}
-        className="textField__input py-3 text-xs bg-secondary-0"
+        className=" w-full  text-sm"
       />
       <button
         type="submit"
-        className="absolute left-0 top-0 ml-3 flex h-full items-center"
+        className="w-8 right-0 top-0 mr-2 flex h-full items-center"
       >
         <Icon
           icon="mynaui:search"
-          width="24"
-          height="24"
-          className={'h-4 text-primary-primary'}
+          width="22"
+          height="22"
+          className={'text-primary-950'}
         />
       </button>
     </form>

@@ -1,66 +1,88 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' important;
+@import 'tailwindcss' prefix;
+@import '../constants/localFont.css';
 
-@layer base {
-  :root {
-    &,
-    &.light-mode {
-      --background: 217, 217, 217;
-      --color-white: 255, 255, 255;
-      --color-black: 0, 0, 0;
+@theme {
+  --font-*: initial;
+  --font-display: 'Vazir', 'sans-serif';
 
-      --color-gray-700: 64, 64, 64;
-      --color-gray-600: 96, 96, 96;
-      --color-gray-500: 134, 134, 134;
-      --color-gray-400: 173, 173, 173;
-      --color-gray-300: 203, 203, 203;
-      --color-gray-200: 237, 237, 237;
-      --color-gray-100: 134, 134, 134;
-      --color-gray-50: 249, 249, 249;
+  --color-*: initial;
+  --background: #d9d9d9;
+  --color-white: #ffffff;
+  --color-black: #000000;
 
-      --color-primary: 250, 84, 28;
-      --color-primary-900: 25, 8, 3;
-      --color-primary-850: 75, 25, 8;
-      --color-primary-700: 150, 50, 17;
-      --color-primary-600: 255, 76, 25;
-      --color-primary-400: 251, 118, 73;
-      --color-primary-300: 252, 152, 119;
-      --color-primary-150: 253, 204, 187;
-      --color-primary-50: 254, 238, 232;
+  --color-gray-700: #404040;
+  --color-gray-600: #606060;
+  --color-gray-500: #868686;
+  --color-gray-400: #adadad;
+  --color-gray-300: #cbcbcb;
+  --color-gray-200: #d9d9d9;
+  --color-gray-100: #ededed;
+  --color-gray-50: #f9f9f9;
 
-      --color-secondary: 3, 35, 64;
-      --color-secondary-900: 1, 7, 13;
-      --color-secondary-850: 1, 10, 19;
-      --color-secondary-700: 2, 21, 38;
-      --color-secondary-400: 25, 65, 101;
-      --color-secondary-300: 47, 95, 138;
-      --color-secondary-150: 81, 140, 193;
-      --color-secondary-50: 103, 170, 230;
-      --color-secondary-10: 207, 232, 255;
-      --color-secondary-0: 235, 245, 255;
+  --color-primary-950: #fa541c;
+  --color-primary-900: #190803;
+  --color-primary-850: #4b1908;
+  --color-primary-700: #963211;
+  --color-primary-600: #e14c19;
+  --color-primary-400: #fb7649;
+  --color-primary-300: #fc9877;
+  --color-primary-150: #fdccbb;
+  --color-primary-50: #feeee8;
 
-      --color-success-10: 211, 237, 221;
-      --color-success-20: 102, 187, 106;
-      --color-success-30: 37, 112, 40;
+  --color-secondary-950: #032340;
+  --color-secondary-900: #01070d;
+  --color-secondary-850: #010a13;
+  --color-secondary-700: #021526;
+  --color-secondary-400: #194165;
+  --color-secondary-300: #2f5f8a;
+  --color-secondary-150: #518cc1;
+  --color-secondary-50: #67aae6;
+  --color-secondary-10: #cfe8ff;
+  --color-secondary-0: #ebf5ff;
 
-      --color-warning-10: 255, 243, 191;
-      --color-warning-20: 255, 179, 0;
-      --color-warning-30: 153, 87, 0;
+  --color-success-10: #d3eddd;
+  --color-success-20: #66bb6a;
+  --color-success-30: #257028;
 
-      --color-error-10: 250, 221, 202;
-      --color-error-20: 229, 57, 53;
-      --color-error-30: 138, 21, 19;
+  --color-warning-10: #fff3bf;
+  --color-warning-20: #ffb300;
+  --color-warning-30: #995700;
 
-      --color-info-10: 199, 242, 252;
-      --color-info-20: 41, 182, 246;
-      --color-info-30: 15, 88, 148;
+  --color-error-10: #faddca;
+  --color-error-20: #e53935;
+  --color-error-30: #8a1513;
 
-      --color-history-green: 239, 247, 246;
-      --color-history-red: 255, 235, 233;
-      --color-history-yellow: 255, 253, 230;
-    }
-  }
+  --color-info-10: 199, 242, 252;
+  --color-info-20: 41, 182, 246;
+  --color-info-30: 15, 88, 148;
+
+  --color-history-green: 239, 247, 246;
+  --color-history-red: 255, 235, 233;
+  --color-history-yellow: 255, 253, 230;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-display);
+  min-height: 100vh;
+  user-select: none;
+  background-color: var(--color-white);
+}
+
+@utility container {
+  padding-inline: 10px;
+  margin-inline: auto;
 }
 
 @layer components {
@@ -69,36 +91,6 @@
   }
   .textField__input {
     @apply w-full py-3 px-4 rounded-xl text-secondary-900;
-  }
-  .btn {
-    @apply px-3 py-3 rounded-xl transition-all duration-300;
-  }
-  .btn--primary {
-    @apply bg-primary-900 hover:bg-primary-700 text-primary-100;
-  }
-  .btn--secondary {
-    @apply bg-secondary-600 text-secondary-100;
-  }
-  .btn--outline {
-    @apply border border-secondary-300 text-secondary-400;
-  }
-  .btn--danger {
-    @apply border border-rose-700 text-rose-700;
-  }
-  .badge {
-    @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
-  }
-  .badge--primary {
-    @apply bg-primary-900 text-white;
-  }
-  .badge--secondary {
-    @apply bg-secondary-200 text-secondary-600;
-  }
-  .badge--success {
-    @apply bg-green-500 text-white;
-  }
-  .badge--danger {
-    @apply bg-red-500 text-white;
   }
 
   .spinner {
@@ -126,32 +118,4 @@
       transform: rotate(1turn);
     }
   }
-}
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  /* border: none; */
-  outline: none;
-  padding: 0;
-  margin: 0;
-}
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: var(--vazir-font);
-  min-height: 100vh;
-  user-select: none;
-  background-color: rgb(var(--background));
 }

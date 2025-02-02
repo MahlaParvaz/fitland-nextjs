@@ -1,90 +1,77 @@
 /** @type {import('tailwindcss').Config} */
 import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
-import tailwindFormPlugin from '@tailwindcss/forms';
-
-// Function to apply opacity to colors
-function withOpacity(variableName: string, opacityValue?: string): string {
-  if (opacityValue !== undefined) {
-    return `rgba(var(${variableName}), ${opacityValue})`;
-  }
-  return `rgb(var(${variableName}))`;
-}
-
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import forms from '@tailwindcss/forms';
 const tailwindConfig: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx,html}'],
+
   theme: {
     extend: {
       colors: {
-        primary: {
-          primary: withOpacity('--color-primary'),
-          900: withOpacity('--color-primary-900'),
-          850: withOpacity('--color-primary-850'),
-          700: withOpacity('--color-primary-700'),
-          600: withOpacity('--color-primary-600'),
-          400: withOpacity('--color-primary-400'),
-          300: withOpacity('--color-primary-300'),
-          150: withOpacity('--color-primary-150'),
-          50: withOpacity('--color-primary-50'),
-        },
-        secondary: {
-          secondary: withOpacity('--color-secondary'),
-          900: withOpacity('--color-secondary-900'),
-          850: withOpacity('--color-secondary-850'),
-          700: withOpacity('--color-secondary-700'),
-          400: withOpacity('--color-secondary-400'),
-          300: withOpacity('--color-secondary-300'),
-          150: withOpacity('--color-secondary-150'),
-          50: withOpacity('--color-secondary-50'),
-          10: withOpacity('--color-secondary-10'),
-          0: withOpacity('--color-secondary-0'),
-        },
-        gray: {
-          700: withOpacity('--color-gray-700'),
-          600: withOpacity('--color-gray-600'),
-          500: withOpacity('--color-gray-500'),
-          400: withOpacity('--color-gray-400'),
-          300: withOpacity('--color-gray-300'),
-          200: withOpacity('--color-gray-200'),
-          100: withOpacity('--color-gray-100'),
-          50: withOpacity('--color-gray-50'),
-        },
-        error: {
-          10: withOpacity('--color-error-10'),
-          20: withOpacity('--color-error-20'),
-          30: withOpacity('--color-error-30'),
-        },
-        success: {
-          10: withOpacity('--color-success-10'),
-          20: withOpacity('--color-success-20'),
-          30: withOpacity('--color-success-30'),
-        },
-        warning: {
-          10: withOpacity('--color-warning-10'),
-          20: withOpacity('--color-warning-20'),
-          30: withOpacity('--color-warning-30'),
-        },
-        white: withOpacity('--color-white'),
-        black: withOpacity('--color-black'),
-        background: withOpacity('--background'),
+        // primary: {
+        //   950: '#FA541C',
+        //   900: '#190803',
+        //   850: '#4B1908',
+        //   700: '#963211',
+        //   600: '#E14C19',
+        //   400: '#FB7649',
+        //   300: '#FC9877',
+        //   150: '#FDCCBB',
+        //   50: '#FEEEE8',
+        // },
+        // secondary: {
+        //   950: '#032340',
+        //   900: '#01070D',
+        //   850: '#010A13',
+        //   700: '#021526',
+        //   400: '#194165',
+        //   300: '#2F5F8A',
+        //   150: '#518CC1',
+        //   50: '#67AAE6',
+        //   10: '#CFE8FF',
+        //   0: '#EBF5FF',
+        // },
+        // gray: {
+        //   700: '#404040',
+        //   600: '#606060',
+        //   500: '#868686',
+        //   400: '#ADADAD',
+        //   300: '#CBCBCB',
+        //   200: '#D9D9D9',
+        //   100: '#EDEDED',
+        //   50: '#F9F9F9',
+        // },
+        // error: {
+        //   10: '#FADDCA',
+        //   20: '#E53935',
+        //   30: '#8A1513',
+        // },
+        // success: {
+        //   10: '#D3EDDD',
+        //   20: '#66BB6A',
+        //   30: '#257028',
+        // },
+        // warning: {
+        //   10: '#FFF3BF',
+        //   20: '#FFB300',
+        //   30: '#995700',
+        // },
+        // white: '#FFFFFF',
+        // black: '#000000',
+        // background: '#D9D9D9',
       },
-      container: {
-        center: true,
-        padding: '1rem',
-      },
+      // container: {
+      //   center: true,
+      //   padding: '1rem',
+      // },
       fontFamily: {
-        sans: ['var(--font-vazir)', ...fontFamily.sans],
+        vazir: ['Vazir', 'sans-serif'],
       },
     },
   },
   plugins: [
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('@tailwindcss/aspect-ratio'),
-    tailwindFormPlugin({
+    aspectRatio,
+    forms({
       strategy: 'class',
     }),
   ],

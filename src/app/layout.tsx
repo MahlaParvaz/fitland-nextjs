@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import vazirFont from '@/constants/localFont';
 import Header from '@/components/ui/Header';
 
 export const metadata: Metadata = {
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`min-h-screen  ${vazirFont.variable} font-sans `}>
+      <body className={'min-h-screen font-display'}>
         <Header />
         {children}
       </body>
