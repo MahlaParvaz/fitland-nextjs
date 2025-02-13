@@ -8,10 +8,10 @@ import { toPersianNumbers } from '@/utils/toPersianNumbers';
 function Header() {
   return (
     <>
-      <p className="bg-secondary-950 w-full h-10 text-white flex justify-center items-center sticky top-0 text-xs">
+      <p className="bg-secondary-950 w-full h-10 text-white flex justify-center items-center fix top-0 text-xs">
         {headerStr.miniTitle}
       </p>
-      <header className="container xl:max-w-screen-xl bg-amber-100">
+      <header className="container xl:max-w-screen-xl bg-amber-100 mt-4">
         <nav className="w-full">
           <ul className="flex gap-8 items-center justify-between  bg-red-50">
             <li className="flex-1">
@@ -48,7 +48,45 @@ function Header() {
             </li>
           </ul>
         </nav>
-        Header
+        <div className="mt-5">
+          <ul className="bg-gray-50 flex items-center justify-between px-10 py-3 text-sm font-bold rounded-xl">
+            <div className="flex gap-8 cursor-pointer">
+              <li>{headerStr.women}</li>
+              <li>{headerStr.men}</li>
+              <li>{headerStr.kids}</li>
+              <li>{headerStr.sportTools}</li>
+            </div>
+            <div className="flex gap-8">
+              <li className="flex gap-2 cursor-pointer items-center">
+                <Icon
+                  icon="hugeicons:star"
+                  width="18"
+                  height="18"
+                  className="text-primary-950"
+                />
+                {headerStr.newProduct}
+              </li>
+              <li className="flex gap-2 cursor-pointer items-center">
+                <Icon
+                  icon="hugeicons:ticket-02"
+                  width="18"
+                  height="18"
+                  className="text-primary-950"
+                />
+                {headerStr.offers}
+              </li>
+              <li className="flex gap-2 cursor-pointer items-center">
+                <Icon
+                  icon="hugeicons:award-04"
+                  width="18"
+                  height="18"
+                  className="text-primary-950"
+                />
+                {headerStr.mostPopular}
+              </li>
+            </div>
+          </ul>
+        </div>
       </header>
     </>
   );

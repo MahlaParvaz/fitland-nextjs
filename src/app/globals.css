@@ -79,6 +79,32 @@ body {
   user-select: none;
   background-color: var(--color-white);
 }
+html {
+  font-family: var(--font-display);
+}
+
+*::-webkit-scrollbar {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-950);
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+}
+
+@-moz-document url-prefix() {
+  body,
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-950) #f5f5f5;
+  }
+}
 
 @utility container {
   padding-inline: 10px;
@@ -119,3 +145,4 @@ body {
     }
   }
 }
+
