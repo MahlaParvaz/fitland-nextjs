@@ -26,3 +26,9 @@ export const newProductStr = {
   desc: ' جدید ترین محصولات با ارسال رایگان تهیه کنید و در سریع ترین زمان درب  منزل تحویل بگیرید',
   showProductBtn: '  مشاهده همه ی محصولات',
 };
+
+export const sliderStr = {
+  title: 'تخفیفات ویژه',
+  desc: 'تخفیفات ویژه برای شما',
+  showAll: ' مشاهده همه',
+};
