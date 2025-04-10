@@ -17,6 +17,8 @@ export const headerStr = {
     'بزرگترین حراج فصل فیت لند همین حالا شرع کن و محصولات با یه تخفیف شگفت انگیز بخر!',
   bannerBigTitle: 'سهم بزرگ خودتان را امروز بگیرید!',
   bennerBtn: 'مشاهده محصولات',
+  cycleBannerTitle: 'برای لذت بردن از مسیر',
+  cycleBannerDesc: 'دوچرخه، اسکیت و اسکوتر بگیر',
 };
 
 export const newProductStr = {
@@ -31,4 +33,5 @@ export const sliderStr = {
   title: 'تخفیفات ویژه',
   desc: 'تخفیفات ویژه برای شما',
   showAll: ' مشاهده همه',
+  newShoes: 'جدیدترین کفش های ورزشی',
 };

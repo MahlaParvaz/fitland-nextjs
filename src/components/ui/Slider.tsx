@@ -12,38 +12,22 @@ import { useRef } from 'react';
 import { toPersianNumbersWithComma } from '@/utils/toPersianNumbers';
 import { sliderStr } from '@/string/string';
 
-const ContentItems = [
-  {
-    imageSrc: '/images/nicky-jumper.jpg',
-    title: 'سوشرت نایک مدل AO-14',
-    price: '300000 هزار تومان',
-    size: 'از سایز L تا XXL',
-  },
-  {
-    imageSrc: '/images/nicky-set-girl.png',
-    title: 'سوشرت نایک مدل AO-14',
-    price: '300000 هزار تومان',
-    size: 'از سایز L تا XXL',
-  },
-  {
-    imageSrc: '/images/shoes-3.png',
-    title: 'کفش نایک مدل S-2000',
-    price: '300000 هزار تومان',
-    size: 'از سایز L تا XXL',
-  },
-  {
-    imageSrc: '/images/nicky-set-girl.png',
-    title: 'تی شرت نایک مدل 1830',
-    price: '300000 هزار تومان',
-    size: 'از سایز L تا XXL',
-  },
-];
+type ContentItem = {
+  imageSrc: string;
+  title: string;
+  price: string;
+  size: string;
+};
+type SliderProps = {
+  contentItems: ContentItem[];
+  sliderId: string;
+};
 
-const Slider = () => {
+const Slider = ({ contentItems, sliderId }: SliderProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <div className="mx-auto py-8 mb-4 w-full">
+    <div className="container mx-auto py-8 mb-4 w-full max-w-6xl">
       <div className="flex justify-end items-center mb-4">
         <button className="w-32 flex items-center justify-center gap-2 cursor-pointer text-secondary-800 font-semibold text-base">
           <Icon icon="solar:round-arrow-left-linear" className="w-5 h-5" />
@@ -57,10 +41,10 @@ const Slider = () => {
         <Swiper
           modules={[Navigation]}
           slidesPerView={3}
-          spaceBetween={30}
+          spaceBetween={40}
           navigation={{
-            prevEl: '.swiper-button-prev',
-            nextEl: '.swiper-button-next',
+            prevEl: `.swiper-button-prev-${sliderId}`,
+            nextEl: `.swiper-button-next-${sliderId}`,
             enabled: true,
             hideOnClick: false,
             disabledClass: 'swiper-button-disabled',
@@ -69,19 +53,19 @@ const Slider = () => {
             swiperRef.current = swiper;
           }}
         >
-          {ContentItems.map((slideContent, index) => (
+          {contentItems.map((slideContent: ContentItem, index: number) => (
             <SwiperSlide key={index}>
               <div className="flex justify-center items-center w-full">
-                <div className="flex flex-col justify-between h-full w-full cursor-pointer">
+                <div className="flex flex-col justify-between w-full cursor-pointer  bg-white rounded-xl border ">
                   <Image
                     src={slideContent.imageSrc}
                     alt={slideContent.title}
                     width={366}
                     height={280}
-                    className="object-cover w-full h-auto"
+                    className="object-cover w-full h-full"
                     priority={index < 2}
                   />
-                  <div className="flex flex-col justify-between h-full w-full gap-2 p-2 mt-3">
+                  <div className="flex flex-col gap-4 h-full w-full p-2 mt-3">
                     <p className="font-medium text-base">
                       {slideContent.title}
                     </p>
@@ -98,11 +82,11 @@ const Slider = () => {
           ))}
         </Swiper>
         <div
-          className="swiper-button-prev"
+          className={`swiper-button-prev swiper-button-prev-${sliderId}`}
           onClick={() => swiperRef.current?.slidePrev()}
         ></div>
         <div
-          className="swiper-button-next"
+          className={`swiper-button-next swiper-button-next-${sliderId}`}
           onClick={() => swiperRef.current?.slideNext()}
         ></div>
       </div>

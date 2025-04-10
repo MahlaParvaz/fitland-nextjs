@@ -1,7 +1,7 @@
 @import 'tailwindcss' important;
 @import 'tailwindcss' prefix;
 @import '../constants/localFont.css';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -31,7 +31,8 @@
   --color-primary-400: #fb7649;
   --color-primary-300: #fc9877;
   --color-primary-150: #fdccbb;
-  --color-primary-50: #feeee8;
+  --color-primary-50: #fff7f4;
+  --color-primary-10: #feeee8;
 
   --color-secondary-950: #032340;
   --color-secondary-900: #01070d;
@@ -264,4 +265,3 @@ html {
     @apply bg-background text-foreground;
   }
 }
-

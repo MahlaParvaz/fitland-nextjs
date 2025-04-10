@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'فیت لند',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className={'min-h-screen font-display'}>
         <Header />
         {children}
+        <Footer/>
       </body>
     </html>
   );
