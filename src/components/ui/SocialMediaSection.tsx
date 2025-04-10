@@ -12,7 +12,7 @@ const SocialMediaSection: React.FC<SocialMediaSectionProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col items-start justify-evenly gap-4 p-4 ${className}`}
+      className={`flex flex-col items-start justify-between gap-5 ${className}`}
     >
       <p className="text-sm font-bold">{title}</p>
       <div className="flex w-full items-start justify-between">

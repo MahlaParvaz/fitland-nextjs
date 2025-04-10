@@ -7,6 +7,7 @@ import ButtonIcon from '@/components/ui/ButtonIcont';
 import { Typography } from '@mui/material';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { newShoes, specialOffer, sportOffer } from '@/data/sliderDatas';
+import NewsCards from '@/components/ui/NewsCards';
 
 export default function Home() {
   return (
@@ -91,6 +92,19 @@ export default function Home() {
           width={1200}
           height={600}
           className="object-cover w-full h-full"
+        />
+      </section>
+
+      <NewsCards />
+
+      <section className="mb-8 mt-14">
+        <Image
+          src={'/images/Before Footer.png'}
+          alt="image"
+          width={1200}
+          height={600}
+          className="object-cover w-full h-full"
+          quality={100}
         />
       </section>
     </div>
